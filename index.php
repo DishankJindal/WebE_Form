@@ -1,11 +1,8 @@
 <!DOCTYPE html>
-<?php
-include('connect.php');
-?>
-<html>
 <head>
   <title>E-form</title>
 </head>
+
 <style type="text/css">
 #container{background-color:#3d3a12;width:800px;height:600px;margin:0 auto;position:relative;}
 #box1{background-color:#d3f6a2;width:100%;height:50px;}
@@ -18,8 +15,11 @@ include('connect.php');
 #copyright{background-color:#f4f4f4;height:0 auto;width:100%;position:fixed;left:0;bottom:0;right:0;box-shadow:0px -5px 15px #363636;}
 
 </style>
-<script type="text/javascript">
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script>
 window.onload=function(){
+
 var video = document.querySelector("#videoElement");
 
 navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia || navigator.oGetUserMedia;
@@ -36,7 +36,9 @@ function videoError(e) {
     alert("No webcam");
 }
 }
+
 </script>
+
 <body>
   <div id="container">
     <div id="box1"> <!--title-->
@@ -49,33 +51,34 @@ function videoError(e) {
         </video>
         <button id="camButton">Capture</button>
       </div>
-      <form><table>
+      <form name="form" method="post" action="process.php" >
+        <table>
         <tr>
-        <td>Name:</td><td><input type="text" value="First name"/><input type="text" value="Last name"/></td>
+        <td>Name:</td><td><input name="SFN" type="text" value="First Name"/><input name="SLN" type="text" value="Last name"/></td>
         </tr>
         <tr>
-        <td>Mobile:</td><td><input type="mobile" value="XXX-XX-XXXXX"/></td>
+        <td>Mobile:</td><td><input name="MOBILE" type="number" value="XXX-XX-XXXXX"/></td>
       </tr>
       <tr>
-        <td>Class:</td><td><input type="number" value="5"/></td>
+        <td>Class:</td><td><input name="CLASS" type="number" value="5"/></td>
       </tr>
       <tr>
         <td>Parents</td>
       </tr>
       <tr>
-        <td>Father's Name:</td><td><input type="text" value="First Name"/><input type="text" value="Last Name"/></td>
+        <td>Father's Name:</td><td><input name="FFN" type="text" value="First Name"/><input name="FLN" type="text" value="Last Name"/></td>
       </tr>
       <tr>
-        <td>Occupation:</td><td><input type="text" value="Occupation"/></td>
+        <td>Occupation:</td><td><input name="FOCP" type="text" value="Occupation"/></td>
       </tr>
       <tr>
-        <td>Mother's Name:</td><td><input type="text" value="First Name"/><input type="text" value="Last Name"/></td>
+        <td>Mother's Name:</td><td><input name="MFN" type="text" value="First Name"/><input name="MLN" type="text" value="Last Name"/></td>
       </tr>
       <tr>
-        <td>Occupation:</td><td><input type="text" value="Occupation"/></td>
+        <td>Occupation:</td><td><input name="MOCP" type="text" value="Occupation"/></td>
       </tr>
       <tr>
-        <td>Address:</td><td><input type="textarea" value="Full address"/></td>
+        <td>Address:</td><td><input name="SADDR" type="area" value="Full address"/></td>
       </tr>
         </address>
       <tr>
