@@ -1,4 +1,5 @@
-<?php
+<?php error_reporting(E_ALL | E_WARNING | E_NOTICE);
+ini_set('display_errors', TRUE);
 /* Configuration Setting */
 
 define('DB_NAME', 'studentDB');
@@ -6,17 +7,13 @@ define('DB_USER', 'root');
 define('DB_PASSWORD', 'root');
 define('DB_HOST', 'localhost');
 
-$link = mysql_connect(DB_HOST, DB_USER, DB_PASSWORD);
+$link = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
 if (!$link) {
 	die('Could not connect: ' . mysql_error());
 }
 
-$db_selected = mysql_select_db(DB_NAME, $link);
-
-if (!$db_selected) {
-	die('Can\'t use ' . DB_NAME . ': ' . mysql_error());
-}
+/* Configuration Ended */
 
 $SFN = $_POST['SFN'];
 $SLN = $_POST['SLN'];
@@ -33,9 +30,6 @@ $SADDR = $_POST['SADDR'];
 $sql = "INSERT INTO form (ID, SFN, SLN, MOBILE, CLASS, FFN, FLN, FOCP, MFN, MLN, MOCP, SADDR) VALUES ('', '$SFN', '$SLN',
    $MOBILE, $CLASS, '$FFN', '$FLN', '$FOCP', '$MFN', '$MLN', '$MOCP', '$SADDR')";
 
-if (!mysql_query($sql)) {
-	die('Error: ' . mysql_error());
-}
-echo "Successfully Submitted";
-mysql_close();
+echo "Succe 
+mysqli_close();
 ?>
