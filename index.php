@@ -19,8 +19,7 @@
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <script>
-window.onload=function(){
-
+$('document').ready(function() { 
 var video = document.querySelector("#videoElement");
 
 navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia || navigator.oGetUserMedia;
@@ -36,7 +35,7 @@ function handleVideo(stream) {
 function videoError(e) {
     alert("No webcam");
 }
-}
+});
 
 </script>
 
